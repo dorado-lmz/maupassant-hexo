@@ -1,0 +1,10 @@
+$font-family-base: "../fonts/roboto";
+
+@font-face {
+    font-family: "Roboto";
+    src: local('Roboto Light'), local('Roboto-Light'), url("#{$font-family-base}/Roboto-Light.woff2") format("woff2"),
+        url("#{$font-family-base}/Roboto-Light.woff") format("woff"),
+        url("#{$font-family-base}/Roboto-Light.ttf") format("truetype");
+
+    font-weight: 200;
+}

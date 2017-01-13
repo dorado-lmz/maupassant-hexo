@@ -1,0 +1,39 @@
+figcaption {
+    font-size: 1.3rem;
+    padding: 0 15px 20px;
+    margin: 0;
+    a {
+        float: right;
+    }
+}
+
+// Tabbed code block
+.codeblock--tabbed {
+    figure.highlight,
+    pre > code {
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    figcaption {
+        a,
+        span {
+            float: left !important;
+        }
+        .tabs {
+            float: right;
+            .tab {
+                cursor: pointer;
+                display: inline-block;
+                margin: 0 5px;
+                padding: 0 7px;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+            .tab.active {
+                background: #349ef3;
+                color: #fff;
+            }
+        }
+    }
+}

@@ -12,17 +12,19 @@ When setting the primary font stack, apply it to the Pure grid units along
 with `html`, `button`, `input`, `select`, and `textarea`. Pure Grids use
 specific font stacks to ensure the greatest OS/browser compatibility.
 */
+@import "_roboto.scss";
+
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
     /* Set your content font stack here: */
-    font-family: "PingFangSC-Regular", Helvetica, "Helvetica Neue", "Segoe UI",
+    font-family: Roboto, Helvetica, "Helvetica Neue", "Segoe UI",
                  "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", sans-serif;
 }
 
 body {
     background-color: #FFF;
     color: #444;
-    font-family: "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    font-family: Roboto, "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
@@ -471,21 +473,24 @@ blockquote,.stressed {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 2.5em 0;
-    padding: 0 0 0 50px;
+    padding: 0 0 0 1em;
     color: #555;
     border-left: none;
+    background: #DDFFDD;
+    position: relative;
+    font-size: .8em;
 }
 blockquote:before,.stressed-quote:before {
-    content: "\201C";
-    display: block;
-    font-family: times;
     font-style: normal;
-    font-size: 48px;
-    color: #444;
-    font-weight: bold;
-    line-height: 30px;
-    margin-left: -50px;
+    content: 'Note';
+    background: green;
+    color: #EEEEEE;
+    padding: 0.15em 0.25em;
+    font: 1em Roboto, sans-serif, Droid Sans Fallback;
     position: absolute;
+    top: 0.2em;
+    left: -2.25em;
+    transform: rotate(-5deg);
 }
 strong,b,em {
     font-weight: bold;
@@ -1831,3 +1836,5 @@ em.search-keyword {
   font-style: normal;
   color: #01579f;
 }
+
+@import "_code.scss"
