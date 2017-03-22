@@ -14,8 +14,66 @@ jsDom.env('', function(err, window) {
     console.error(err);
     return;
   }
-  
+    var langMap = {
+        'css': 'css',
+        'htm': 'html',
+        'html': 'html',
+        'javascript': 'javascript',
+        'js': 'javascript',
+        'json': 'javascript'
+    };
   var $ = require('jquery')(window);
+    function getLanguage(lang) {
+        if (lang && langMap[lang]) {
+            lang = langMap[lang];
+        }
+        return lang;
+    }
+        var injectFn = {
+        'javascript': function(code) {
+            return '<script>' + code + '</script>';
+        },
+        'css': function(code) {
+            return '<style type="text/css">' + code + '</style>';
+        },
+        'html': function(code) {
+            return '<div class="hexo-insert-code">' + code + '</div>';
+        }
+    };
+    function escapeCode(lang, code) {
+        if (injectFn[lang]) {
+            code = injectFn[lang](code);
+        }
+        return '\n<escape>' + code + '</escape>\n';
+    }
+    function syntaxExtra(language, content) {
+      // console.log("---------------")
+        // console.log(raw);
+        // var quoteCount = startQuote.length;
+
+        // var hide = quoteCount >= 5;
+        // var inject = (quoteCount === 4 || hide);
+
+        // if (!inject) {
+        //     return raw;
+        // }
+
+        language = language.toLowerCase();
+        language = getLanguage(language);
+
+        // inject = inject && canInject(language);
+
+        // if (!inject) {
+        //     return raw;
+        // }
+
+        //
+        // var meta = language + (options ? (' ' + options) : '');
+        // var native = start + '```' + meta + '\n' + content + '\n```' + end;
+        var injected = escapeCode(language, content);
+
+        return injected;
+    }
 
   /**
    * Tabbed code block
@@ -24,6 +82,7 @@ jsDom.env('', function(err, window) {
    * @returns {string}
    */
   function tabbedCodeBlock(args, content) {
+    console.log(content)
     var arg = args.join(' ');
     var config = hexo.config.highlight || {};
     var html;
@@ -31,6 +90,7 @@ jsDom.env('', function(err, window) {
     var match;
     var caption = '';
     var codes = '';
+    var injects = [];
 
     // extract languages and source codes
     while ((match = rTab.exec(content))) {
@@ -44,7 +104,7 @@ jsDom.env('', function(err, window) {
       var $code;
       // trim code
       code = stripIndent(code).trim();
-
+      injects.push(syntaxExtra(lang,code));
       if (config.enable) {
         // highlight code
         code = highlight(code, {
@@ -91,6 +151,7 @@ jsDom.env('', function(err, window) {
     // wrap caption
     caption = '<figcaption>' + caption + '</figcaption>';
     html = '<figure class="codeblock codeblock--tabbed">' + caption + codes + '</figure>';
+    html += injects.join("");
     return html;
   }
 

@@ -20,9 +20,12 @@ menu:
   - page: archive
     directory: archives/
     icon: fa-archive
-  - page: about
-    directory: about/
-    icon: fa-user
+#  - page: about
+#    directory: about/
+#    icon: fa-user
+  - page: experiment
+    directory: experiment
+    icon: fa-plus
   - page: rss
     directory: atom.xml
     icon: fa-rss
@@ -56,6 +59,7 @@ timeline:
 # Static files
 js: js
 css: css
+experiment: experiment
 
 # Theme version
 version: 0.0.0
