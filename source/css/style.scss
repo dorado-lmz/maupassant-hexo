@@ -12,31 +12,27 @@ When setting the primary font stack, apply it to the Pure grid units along
 with `html`, `button`, `input`, `select`, and `textarea`. Pure Grids use
 specific font stacks to ensure the greatest OS/browser compatibility.
 */
-@import "_roboto.scss";
+// @import "_roboto.scss";
 
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
     /* Set your content font stack here: */
-    font-family: Roboto, Helvetica, "Helvetica Neue", "Segoe UI",
+    font-family:  "Helvetica Neue", Helvetica, "Segoe UI",
                  "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", sans-serif;
 }
 
 body {
     background-color: #FFF;
     color: #444;
-    font-family: Roboto, "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
 }
 .body_container {
-    padding: 0 60px;
-    max-width: 1150px;
-    margin: 0 auto;
 }
 .content_container {
-    padding-right: 50px;
-    padding-top: 20px;
+    padding: 0 50px;
 }
 a, button.submit {
     color: #6E7173;
@@ -60,57 +56,52 @@ div {
 }
 
 #header {
-    padding: 58px 0 0;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    width:100%;
     position: relative;
-    .site-name {
-        margin-bottom: 40px;
-        h1 {
-            padding: 0;
-            margin: 0;
-            height: 0;
-            overflow: hidden;
-        }
-        #logo {
-            font: bold 38px/1.12 "Times New Roman", Georgia, Times, sans-serif;
-            color: #555;
-            span, &:hover {
-                color: #777;
-            }
-        }
-        .description {
-            margin: .2em 0 0;
-            color: #999;
-        }
-    }
-    #nav-menu {
-        margin: 10px 0 -1px;
-        padding: 0;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        a {
-            display: inline-block;
-            padding: 3px 20px 3px;
-            line-height: 30px;
-            color: #444;
-            font-size: 13px;
-            border: 1px solid transparent;
-            &:hover {
-                border-bottom-color: #444;
-            }
-            &.current {
-                border: 1px solid #ddd;
-                border-bottom-color: #fff;
-            }
-        }
+    padding: 10px 0;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    box-shadow: 0 3px 2px -2px rgba(200,200,200,.15);
+    .container{
+      padding: 0 15px;
+      box-sizing: border-box;
+      .site-name {
+          float:left;
+          h1 {
+              padding: 0;
+              margin: 0;
+              height: 0;
+              overflow: hidden;
+          }
+          #logo {
+              font: bold 20px/1.12 "Helvetica Neue", Helvetica, "Segoe UI";
+              color: #3884ff;
+              span, &:hover {
+                  color: #777;
+              }
+          }
+      }
+      #nav-menu {
+          padding: 0;
+          right: 0;
+          bottom: 0;
+          a {
+              display: inline-block;
+              padding: 3px 20px 3px;
+              color: #555;
+              font-size: 14px;
+              font-weight: 400;
+              border: 1px solid transparent;
+              &:hover {
+                  color: #3884ff;
+              }
+          }
+      }
     }
 }
 
 #sidebar {
-    border-left: 1px solid #ddd;
-    padding-left: 35px;
     margin-top: 40px;
     padding-bottom: 20px;
     word-wrap: break-word;
@@ -137,8 +128,21 @@ div {
         .tagcloud {
             margin-top: 10px;
             a {
-                line-height: 1.5;
-                padding: 5px;
+                display: inline-block;
+                white-space: nowrap;
+                overflow: hidden;
+                padding: 4px 8px;
+                font-size: 12px;
+                border: none;
+                color: rgba(0,0,0,.6);
+                background: rgba(0,0,0,.05);
+                -webkit-transition: .2s ease background;
+                -moz-transition: .2s ease background;
+                -ms-transition: .2s ease background;
+                -o-transition: .2s ease background;
+                transition: .2s ease background;
+                margin: 2px 3px;
+                font-weight: 600
               }
         }
         ul {
@@ -163,25 +167,16 @@ div {
             position: relative;
             overflow: hidden;
             input {
-                background: #fff 8px 8px no-repeat
-                    url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6%2BR8AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAG11AABzoAAA%2FN0AAINkAABw6AAA7GgAADA%2BAAAQkOTsmeoAAAESSURBVHjajNCxS9VRGMbxz71E4OwgoXPQxVEpXCI47%2BZqGP0LCoJO7UVD3QZzb3SwcHB7F3Uw3Zpd%2FAPCcJKG7Dj4u%2FK7Pwp94HDg5Xyf5z1Pr9YKImKANTzFXxzjU2ae6qhXaxURr%2FAFl9hHDy%2FwEK8z89sYVEp5gh84wMvMvGiSJ%2FEV85jNzLMR1McqfmN5BEBmnmMJFSvtpH7jdJiZv7q7Z%2BZPfMdcF6rN%2FT%2F1m2LGBkd4HhFT3dcRMY2FpskxaLNpayciHrWAGeziD7b%2BVfkithuTk8bkGa4wgWFmbrSTZOYeBvjc%2BucQj%2FEe6xHx4Taq1nrnKaW8K6XUUsrHWuvNevdRRLzFGwzvDbXAB9cDAHvhedDruuxSAAAAAElFTkSuQmCC);
-                padding: 7px 11px 7px 28px;
-                line-height: 16px;
-                border: 1px solid #bbb;
                 width: 65%;
-                -webkit-border-radius: 5px;
-                -moz-border-radius: 5px;
-                -ms-border-radius: 5px;
-                -o-border-radius: 5px;
-                border-radius: 5px;
-                -webkit-box-shadow: none;
-                -moz-box-shadow: none;
-                box-shadow: none;
+                height: 34px;
             }
         }
     }
 }
 
+#layout{
+      background: #fafafa;
+}
 /* title for search result or tagged posts*/
 .label-title {
     margin-top: 1.1em;
@@ -191,21 +186,37 @@ div {
 }
 
 .post {
-    padding: 25px 0 15px;
+    padding: 0 30px;
+    box-shadow: 1px 2px 3px 0 rgba(0,0,0,.1);
+    margin: 30px auto;
+    background: white;
+    border-radius: 4px;
+    border: 1px solid #e8eaed;
     .post-title {
-        margin: 0;
+        position: relative;
         color: #555;
         text-align: left;
-        font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+        font-size: 25px;
         a {
             color: #555;
         }
+        .readmore{
+          position: absolute;
+          top: 0;
+          right: 0;
+          font-weight: normal
+        }
+    }
+    hr{
+      margin-top: 5px;
+      margin-bottom: 5px;
+      border: 0;
+      border-top: 1px solid #eee;
     }
     .post-meta {
         padding: 0;
         margin: 15px 0 0;
         color: #6E7173;
-        float: left;
         display: inline;
         text-indent: .15em;
         &:before {
@@ -267,7 +278,7 @@ div {
         color: #444;
         padding-top: 15px;
         text-align: justify;
-        text-justify: distribute;
+        
         word-break: normal;
         h2 {
             margin: 1.4em 0 1.1em;
@@ -416,7 +427,7 @@ div {
 .post-archive {
     font-size: 15px;
     line-height: 2;
-    padding-bottom: .8em;
+    padding: .8em 0;
     h2 {
         margin: 0;
         font: bold 25px / 1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
@@ -442,20 +453,24 @@ div {
         border-left-width: 0px;
     }
     #header {
-        .site-name {
-            margin-bottom: 20px;
-            text-align: center;
+        .container{
+          .site-name {
+              margin-bottom: 20px;
+              text-align: center;
+              float: none;
+          }
+          #nav-menu {
+              position: relative;
+              text-align: center;
+              a {
+                  padding: 0 15px;
+                  line-height: 27px;
+                  height: 27px;
+                  font-size: 13px;
+              }
+          }
         }
-        #nav-menu {
-            position: relative;
-            text-align: center;
-            a {
-                padding: 0 15px;
-                line-height: 27px;
-                height: 27px;
-                font-size: 13px;
-            }
-        }
+
     }
 }
 
@@ -474,16 +489,16 @@ blockquote,.stressed {
     box-sizing: border-box;
     margin: 2.5em 0;
     padding: 0 0 0 1em;
-    color: #555;
+    color: white;
     border-left: none;
-    background: #DDFFDD;
+    background: #3884ff;
     position: relative;
     font-size: .8em;
 }
 blockquote:before,.stressed-quote:before {
     font-style: normal;
     content: 'Note';
-    background: green;
+    background: HSL(217, 100%, 41%);
     color: #EEEEEE;
     padding: 0.15em 0.25em;
     font: 1em Roboto, sans-serif, Droid Sans Fallback;
@@ -841,23 +856,15 @@ pre {
 }
 
 /* read more*/
-.readmore a {
+.post-title .readmore a {
+    background: #3884ff;
+    border-color: #3884ff;
+    color: #fff;
     font-size: 14px;
-    color: #444;
     margin: -10px 0;
     padding: 5px 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
-    float: right;
-    &:after {
-        font-family: "FontAwesome";
-        content: "\f101";
-        padding-left: 0.3em;
-    }
-    &:hover {
-        background: #F8F8F8;
-        border-bottom-color: #D26911;
-    }
 }
 
 /* duoshuo style*/

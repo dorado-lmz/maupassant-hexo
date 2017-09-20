@@ -44,7 +44,7 @@ jsDom.env('', function(err, window) {
         if (injectFn[lang]) {
             code = injectFn[lang](code);
         }
-        return '\n<escape>' + code + '</escape>\n';
+        // return '\n<escape>' + code + '</escape>\n';
     }
     function syntaxExtra(language, content) {
       // console.log("---------------")
