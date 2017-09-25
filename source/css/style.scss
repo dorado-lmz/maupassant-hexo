@@ -12,19 +12,19 @@ When setting the primary font stack, apply it to the Pure grid units along
 with `html`, `button`, `input`, `select`, and `textarea`. Pure Grids use
 specific font stacks to ensure the greatest OS/browser compatibility.
 */
-// @import "_roboto.scss";
+@import "_roboto.scss";
 
 html, button, input, select, textarea,
 .pure-g [class *= "pure-u"] {
     /* Set your content font stack here: */
-    font-family:  "Helvetica Neue", Helvetica, "Segoe UI",
+    font-family:  Roboto,"Helvetica Neue", Helvetica, "Segoe UI",
                  "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", sans-serif;
 }
 
 body {
     background-color: #FFF;
     color: #444;
-    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    font-family: Roboto,"Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
@@ -32,7 +32,7 @@ body {
 .body_container {
 }
 .content_container {
-    padding: 0 50px;
+    padding: 0 30px;
 }
 a, button.submit {
     color: #6E7173;
@@ -61,8 +61,8 @@ div {
     position: relative;
     padding: 10px 0;
     background: #fff;
-    border-bottom: 1px solid #e5e5e5;
-    box-shadow: 0 3px 2px -2px rgba(200,200,200,.15);
+    // border-bottom: 1px solid #e5e5e5;
+    // box-shadow: 0 3px 2px -2px rgba(200,200,200,.15);
     .container{
       padding: 0 15px;
       box-sizing: border-box;
@@ -174,6 +174,54 @@ div {
     }
 }
 
+#main{
+    #main-header{
+        border-bottom: 1px solid #e5e5e5;
+        box-shadow: 0 3px 2px -2px rgba(200,200,200,.15);
+        padding-bottom: 10px;
+    }
+    .PageHeadSticky{
+        z-index: 498;
+        position: relative;
+        margin: 0 auto;
+        padding: 0 50px;
+        background-color: #fff;
+        .head-heading{
+            font-size: 24px;
+            padding: 0;
+            margin: 0;
+            line-height: 53px;
+            font-weight: 500;
+        }
+
+    }
+}
+.overview{
+    padding: 20px 0 0;
+    .overview-title{
+        margin: 0 0 10px;
+        font-weight: 500;
+        font-size: 20px;
+        .overview-steptitle,.overview-stepdivider{
+            display: inline-block;
+            padding: 6px;
+            border-radius: 5px;
+            font-weight: 400;
+        }
+        .overview-stepdivider{
+            color: #b3b3b1;
+        }
+        .overview-steptitle.primary{
+            font-weight: 500;
+        }
+    }
+    .overview-note{
+        color: #999;
+        margin: 0 0 5px 6px;
+        font-weight: 200;
+    }
+}
+
 #layout{
       background: #fafafa;
 }
@@ -184,28 +232,68 @@ div {
     font-weight: normal;
     color: #888;
 }
-
+.post.index{
+    display: flex;
+}
 .post {
-    padding: 0 30px;
+    padding: 20px;
     box-shadow: 1px 2px 3px 0 rgba(0,0,0,.1);
     margin: 30px auto;
     background: white;
     border-radius: 4px;
     border: 1px solid #e8eaed;
+
+    .post-img{
+        height: 42px;
+        width: 50px;
+        margin-right: 15px;
+        opacity: .5;
+        transition: .3s ease;
+        img{
+            display: block;
+            height: 100%;
+        }
+    }
     .post-title {
-        position: relative;
         color: #555;
         text-align: left;
-        font-size: 25px;
+        font-size: 20px;
+        flex: 1;
         a {
             color: #555;
+            display: block;
         }
+        .post-meta {
+            padding: 0;
+            margin: 5px 0 0;
+            color: #737373;
+            display: inline;
+            text-indent: .15em;
+            font-size: 12px;
+            &:before {
+                  content: "Last updated ";
+                  padding-right: 0.3em;
+            }
+            .category {
+                &:before {
+                  font-family: "FontAwesome";
+                  content: "\f07c";
+                  padding-right: 0.3em;
+                }
+            }
+            #busuanzi_value_page_pv {
+                &:before {
+                  font-family: "FontAwesome";
+                  content: "\f024";
+                  padding-right: 0.3em;
+                }
+            }
+        }
+    }
+    .post-action{
         .readmore{
-          position: absolute;
-          top: 0;
-          right: 0;
-          font-weight: normal
-        }
+            font-weight: normal
+          }
     }
     hr{
       margin-top: 5px;
@@ -213,32 +301,7 @@ div {
       border: 0;
       border-top: 1px solid #eee;
     }
-    .post-meta {
-        padding: 0;
-        margin: 15px 0 0;
-        color: #6E7173;
-        display: inline;
-        text-indent: .15em;
-        &:before {
-              font-family: "FontAwesome";
-              content: "\f073";
-              padding-right: 0.3em;
-        }
-        .category {
-            &:before {
-              font-family: "FontAwesome";
-              content: "\f07c";
-              padding-right: 0.3em;
-            }
-        }
-        #busuanzi_value_page_pv {
-            &:before {
-              font-family: "FontAwesome";
-              content: "\f024";
-              padding-right: 0.3em;
-            }
-        }
-    }
+
     .ds-thread-count {
         padding: 0;
         margin: 15px 0 0;
@@ -278,7 +341,7 @@ div {
         color: #444;
         padding-top: 15px;
         text-align: justify;
-        
+
         word-break: normal;
         h2 {
             margin: 1.4em 0 1.1em;
@@ -489,16 +552,14 @@ blockquote,.stressed {
     box-sizing: border-box;
     margin: 2.5em 0;
     padding: 0 0 0 1em;
-    color: white;
     border-left: none;
-    background: #3884ff;
     position: relative;
     font-size: .8em;
 }
 blockquote:before,.stressed-quote:before {
     font-style: normal;
     content: 'Note';
-    background: HSL(217, 100%, 41%);
+    background: #3884ff;
     color: #EEEEEE;
     padding: 0.15em 0.25em;
     font: 1em Roboto, sans-serif, Droid Sans Fallback;

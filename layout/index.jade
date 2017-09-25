@@ -6,18 +6,23 @@ block title
     title= config.title + ' | ' + config.subtitle
   else
     title= config.title
-block content
 
+block page_header
+  h1.head-heading Explore
+
+block content
   for post in page.posts.toArray()
-    .post
-      h2.post-title
+    .post.index
+      .post-img
+        img(src=post.img?post.img:'http://www.gitbook.com/assets/images/templates/base-icon.svg')
+      .post-title
         include _partial/helpers
         a(href=url_for(post.path))
           +title(post)
-        div(class='readmore')
+        .post-meta= post.date.format(config.date_format)
+      .post-action
+        .readmore
           a(href=url_for(post.path))= __('Readmore')
-      .post-meta= post.date.format(config.date_format)
-      hr
       if theme.duoshuo
         a.ds-thread-count(data-thread-key=post.path, href=url_for(post.path) + '#comments')
       if theme.disqus
@@ -28,7 +33,7 @@ block content
       else if post.excerpt
         .post-content
           != post.excerpt
-      else if post.content
+      else if post.content && 1==2
         - var br = 0
         - for (var i = 0; i < 5; ++i) {
           - br = post.content.indexOf('\n',br+1)

@@ -7,4 +7,25 @@ $font-family-base: "../fonts/roboto";
         url("#{$font-family-base}/Roboto-Light.ttf") format("truetype");
 
     font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local('Roboto Medium'), local('Roboto-Medium'), url("#{$font-family-base}/Roboto-Medium.woff2") format("woff2"),
+        url("#{$font-family-base}/Roboto-Medium.woff") format("woff"),
+        url("#{$font-family-base}/Roboto-Medium.ttf") format("truetype");
+
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: local('Roboto Bold'),local('Roboto-Bold'),  url("#{$font-family-base}/Roboto-Bold.woff2") format("woff2"),
+        url("#{$font-family-base}/Roboto-Bold.woff") format("woff"),
+        url("#{$font-family-base}/Roboto-Bold.ttf") format("truetype");
+
+    font-weight: 500;
+    font-style: normal;
 }
